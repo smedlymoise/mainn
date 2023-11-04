@@ -101,7 +101,7 @@ struct CodeScannerView: UIViewControllerRepresentable {
                 parent.completion(.success(ScanResult(string: stringValue)))
                 
                 // Delay resetting the hasScanned flag to avoid multiple reads (scans)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                     self.hasScanned = false
                 }
             }

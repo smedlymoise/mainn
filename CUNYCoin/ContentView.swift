@@ -28,6 +28,9 @@ import SwiftUI
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject var userBalance: UserBalance // Access the environment object
+
     var body: some View {
         WelcomeScreenView()
     }
