@@ -21,6 +21,7 @@
 		21F17B892AF6A668006799BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21F17B8C2AF6A668006799BD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		21F17B932AF6ABE6006799BD /* CodeScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeScannerView.swift; sourceTree = "<group>"; };
+		21F17B952AF6B195006799BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +54,7 @@
 		21F17B842AF6A667006799BD /* CUNYCoin */ = {
 			isa = PBXGroup;
 			children = (
+				21F17B952AF6B195006799BD /* Info.plist */,
 				21F17B852AF6A667006799BD /* CUNYCoinApp.swift */,
 				21F17B872AF6A667006799BD /* ContentView.swift */,
 				21F17B892AF6A668006799BD /* Assets.xcassets */,
@@ -279,6 +281,8 @@
 				DEVELOPMENT_TEAM = FY6ZSJ3L3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CUNYCoin/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to use the camera to scan codes on water bottles.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -308,6 +312,8 @@
 				DEVELOPMENT_TEAM = FY6ZSJ3L3F;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CUNYCoin/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to use the camera to scan codes on water bottles.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
