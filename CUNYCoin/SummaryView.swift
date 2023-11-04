@@ -14,7 +14,7 @@ struct SummaryView: View {
     var body: some View {
         VStack {
             Text("Total Balance: $\(userBalance.total, specifier: "%.2f")")
-            NavigationLink(destination: SpendingView(showSpendingView: $showSpendingView).environmentObject(userBalance)) {
+            NavigationLink(destination: SpendingView(showSpendingView: $showSpendingView, studentName: studentName).environmentObject(userBalance)) {
                 Text("Spend Tokens")
                     .padding()
                     .background(Color.blue)

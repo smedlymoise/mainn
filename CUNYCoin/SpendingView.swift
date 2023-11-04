@@ -14,6 +14,7 @@ struct SpendingView: View {
     @State private var spendAmount: String = ""
     @State private var showAlert: Bool = false
     @State private var alertMessage: String = ""
+    var studentName: String
     
     private let stores = ["Book Store", "Cafeteria"]
     
@@ -44,11 +45,19 @@ struct SpendingView: View {
                 Alert(
                     title: Text("Success"),
                     message: Text(alertMessage),
-                    dismissButton: .default(Text("Back to Home")) {
+                    dismissButton: .default(Text("Happy to recycle!")) {
                         showSpendingView = false // This will dismiss the SpendingView and return to HomeView
                     }
                 )
             }
+
+        }
+        NavigationLink(destination: HomeView(studentName: studentName)) {
+            Text("Go Home")
+                .padding()
+                .background(Color.gray)
+                .foregroundColor(.white)
+                .cornerRadius(8)
         }
         // Displays the total user balance.
             .navigationBarItems(trailing: HStack {

@@ -31,7 +31,7 @@ struct HomeView: View {
             }
             
             .sheet(isPresented: $showSpendingView) {
-                SpendingView(showSpendingView: $showSpendingView)
+                SpendingView(showSpendingView: $showSpendingView, studentName: studentName)                    .environmentObject(userBalance)
             }
         }
         // Displays the total user balance.
