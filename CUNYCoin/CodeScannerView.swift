@@ -44,7 +44,7 @@ struct CodeScannerView: UIViewControllerRepresentable {
             
             // Set the delegate to receive the metadata objects and set the type of metadata to look for.
             metadataOutput.setMetadataObjectsDelegate(context.coordinator, queue: DispatchQueue.main)
-            metadataOutput.metadataObjectTypes = [.ean8, .ean13] // The types of codes you expect on water bottles (Barcodes types like EAN8 and EAN13.)
+            metadataOutput.metadataObjectTypes = [.ean8, .ean13, .qr] // The types of codes you expect on water bottles (Barcodes types like EAN8 and EAN13.)
         } else {
             completion(.failure(.setupError))
             return scannerViewController
