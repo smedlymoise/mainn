@@ -77,6 +77,7 @@ struct CodeScannerView: UIViewControllerRepresentable {
     // Coordinator class that conforms to AVCaptureMetadataOutputObjectsDelegate to handle the metadata capture.
     class Coordinator: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         let parent: CodeScannerView
+        var hasScanned = false // Tracks if the property was already scanned
 
         init(_ scannerView: CodeScannerView) {
             self.parent = scannerView
@@ -84,17 +85,25 @@ struct CodeScannerView: UIViewControllerRepresentable {
 
         // This delegate method is called when a barcode is captured by the session.
         func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-            if let metadataObject = metadataObjects.first {
+            if !hasScanned, let metadataObject = metadataObjects.first {
+                hasScanned = true // Set hasScanned to true to avoid multiple scans
                 
                 // The metadataObject is cast to AVMetadataMachineReadableCodeObject and its string value is extracted.
                 guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject,
                       let stringValue = readableObject.stringValue else { return }
 
                 // Trigger a haptic feedback to notify the user that a code was scanned.
-                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+                AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate)) // Should only vibrate once
+                
+                print("Scanned barcode value: \(stringValue)") // Logs the scanned value to the console.
                 
                 // Call the completion handler with the scanned code.
                 parent.completion(.success(ScanResult(string: stringValue)))
+                
+                // Delay resetting the hasScanned flag to avoid multiple reads (scans)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                    self.hasScanned = false
+                }
             }
         }
     }
