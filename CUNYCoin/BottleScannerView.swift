@@ -18,6 +18,7 @@ struct BottleScannerView: View {
         "0096619756803": true, // True if recyclable
         "0076301000155": true,
         "0850039525001": true,
+        "04965802": true,
         
     ]
     
@@ -25,6 +26,7 @@ struct BottleScannerView: View {
         "0096619756803": "Kirkland", // Barcode values and their corresponding company
         "0076301000155": "Apple & Eve",
         "0850039525001": "Sun Berry Farms",
+        "04965802": "Coca-Cola",
     ]
 
     var body: some View {
