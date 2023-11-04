@@ -49,12 +49,6 @@ struct WelcomeScreenView: View {
                         .cornerRadius(10)
                     }
                 }
-                // Displays the total user balance.
-                    .navigationBarItems(trailing: HStack {
-                        Text("Balance: ")
-                        Text("$\(userBalance.total, specifier: "%.2f")")
-                            .bold()
-                    })
                 
                     .sheet(isPresented: $isShowingScanner) {
                         // Present the CodeScannerView here
@@ -66,7 +60,7 @@ struct WelcomeScreenView: View {
                                 // Use the scanned string to lookup the student name
                                 let scannedID = scanResult.string
                                 if let studentName = self.studentDirectory[scannedID] {
-//                                    self.welcomeMessage = "Welcome, \(studentName)!"
+//                                  self.welcomeMessage = "Welcome, \(studentName)!"
                                     self.studentName = studentName
                                     self.isAuthenticated = true // Set to true when authenticated.
                                 } else {
@@ -76,6 +70,11 @@ struct WelcomeScreenView: View {
                                 // Handle any errors, perhaps show an alert to the user
                                 print(error.localizedDescription)
                             }
+                        }
+                    }
+                    .onAppear {
+                        if !studentName.isEmpty {
+                            self.isAuthenticated = true
                         }
                     }
             }

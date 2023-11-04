@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject var userBalance: UserBalance
     @State private var showSpendingView = false
     var studentName: String
     
@@ -33,6 +34,12 @@ struct HomeView: View {
                 SpendingView(showSpendingView: $showSpendingView)
             }
         }
+        // Displays the total user balance.
+            .navigationBarItems(trailing: HStack {
+                Text("Balance: ")
+                Text("$\(userBalance.total, specifier: "%.2f")")
+                    .bold()
+            })
     }
 }
 

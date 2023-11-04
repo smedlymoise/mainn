@@ -50,13 +50,19 @@ struct SpendingView: View {
                 )
             }
         }
+        // Displays the total user balance.
+            .navigationBarItems(trailing: HStack {
+                Text("Balance: ")
+                Text("$\(userBalance.total, specifier: "%.2f")")
+                    .bold()
+            })
     }
     
     private func spendAmountAtStore(_ amount: Double, at store: String) {
         if userBalance.total >= amount {
             userBalance.total -= amount
             // Here handle the logic of spending the amount
-            alertMessage = "You've successfully spent $\(amount) at \(store).\nYour new balance is $\(userBalance.total)."
+            alertMessage = "You've successfully spent $\(amount) at the \(store).\nYour new balance is $\(userBalance.total)."
             showAlert = true
         } else {
             // Handle the insufficient funds case
