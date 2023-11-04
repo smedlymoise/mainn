@@ -19,6 +19,8 @@ struct BottleScannerView: View {
         "0076301000155": true,
         "0850039525001": true,
         "04965802": true,
+        "04963406": true,
+        "0075720000616": true,
         
     ]
     
@@ -27,6 +29,8 @@ struct BottleScannerView: View {
         "0076301000155": "Apple & Eve",
         "0850039525001": "Sun Berry Farms",
         "04965802": "Coca-Cola",
+        "04963406": "Coca-Cola",
+        "0075720000616": "Poland Spring",
     ]
 
     var body: some View {
